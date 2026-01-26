@@ -1,0 +1,21 @@
+[project]
+name = "blazing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "husamhamu", email = "husssamhamo123@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard,standart]>=0.128.0",
+    "psycopg2-binary>=2.9.11",
+    "sqlmodel>=0.0.31",
+]
+
+[project.scripts]
+blazing = "blazing:main"
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
