@@ -12,6 +12,7 @@ postgres_url = f"postgresql://{username}:{password}@{host}:5432/{db}"
 
 engine = create_engine(postgres_url)
 
+
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 

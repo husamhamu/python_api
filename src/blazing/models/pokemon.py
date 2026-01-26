@@ -6,17 +6,16 @@ from sqlmodel import Field, SQLModel
 
 import enum
 
+
 class Region(enum.Enum):
     kanto = "Kanto"
     johto = "Johto"
 
 
-class Pokemon(SQLModel, table= True):
-    id: int | None = Field(default= None, primary_key= True)
+class Pokemon(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
 
-    created_at: datetime = Field(default_factory= lambda: datetime.now(timezone.utc))
-
-    
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     name: str
     number: int

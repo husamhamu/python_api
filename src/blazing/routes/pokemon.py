@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from sqlmodel import select 
+from sqlmodel import select
 from blazing.db import SessionType
 from blazing.models.pokemon import Pokemon
 
@@ -16,14 +16,16 @@ def add_pokemon(pokemon: Pokemon, session: SessionType) -> Pokemon:
 
     return pokemon
 
+
 @router.get("/{pkemon_id}")
 def get_pokemon(pokemon_id: int, session: SessionType) -> Pokemon:
     pokemon = session.get(Pokemon, pokemon_id)
 
     if not pokemon:
         raise HTTPException(status_code=404, detail="Pokemon not found")
-    
+
     return pokemon
+
 
 @router.delete("/{pokemon_id}")
 def delete_pokemon(pokemon_id: int, session: SessionType):
@@ -36,7 +38,11 @@ def delete_pokemon(pokemon_id: int, session: SessionType):
     session.commit
     return {"ok": True}
 
+
 @router.get("/")
 def list_pokemon(session: SessionType) -> list[Pokemon]:
     return list(session.exec(select(Pokemon)).all())
 
+
+def get_integer() -> int:
+    return 42
