@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from sqlmodel import select
 from blazing.db import SessionType
-from blazing.models.pokemon import Pokemon
+from blazing.models.pokemon import Pokemon, PokemonBase
 
 router = APIRouter(
     prefix="/pokemon",
@@ -17,7 +17,7 @@ def add_pokemon(pokemon: Pokemon, session: SessionType) -> Pokemon:
     return pokemon
 
 
-@router.get("/{pkemon_id}")
+@router.get("/{pokemon_id}")
 def get_pokemon(pokemon_id: int, session: SessionType) -> Pokemon:
     pokemon = session.get(Pokemon, pokemon_id)
 
@@ -35,7 +35,7 @@ def delete_pokemon(pokemon_id: int, session: SessionType):
         raise
 
     session.delete(pokemon)
-    session.commit
+    session.commit()
     return {"ok": True}
 
 

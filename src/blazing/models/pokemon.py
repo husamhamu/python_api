@@ -7,16 +7,17 @@ from sqlmodel import Field, SQLModel
 import enum
 
 
-class Region(enum.Enum):
+class Region(str, enum.Enum):
     kanto = "Kanto"
     johto = "Johto"
 
+class PokemonBase(SQLModel):
+    name: str
+    number: int
+    region: Region
 
-class Pokemon(SQLModel, table=True):
+class Pokemon(PokemonBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
 
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
-    name: str
-    number: int
-    region: Region
