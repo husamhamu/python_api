@@ -1,7 +1,6 @@
 """
 Shared pytest fixtures for unit and integration tests.
 """
-import os
 from typing import Generator
 
 import pytest

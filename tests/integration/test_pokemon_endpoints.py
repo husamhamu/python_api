@@ -19,7 +19,7 @@ class TestPokemonEndpoints:
             json={
                 "name": "Bulbasaur",
                 "number": 1,
-                "region": "kanto"
+                "region": "Kanto"
             }
         )
         
@@ -38,7 +38,7 @@ class TestPokemonEndpoints:
             json={
                 "name": "Chikorita",
                 "number": 152,
-                "region": "johto"
+                "region": "Johto"
             }
         )
         
