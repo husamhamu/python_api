@@ -10,9 +10,8 @@ router = APIRouter(
 
 @router.post("/")
 def add_pokemon(pokemon_data: PokemonBase, session: SessionType) -> Pokemon:
-    
     pokemon = Pokemon.model_validate(pokemon_data)
-    
+
     session.add(pokemon)
     session.commit()
     session.refresh(pokemon)
