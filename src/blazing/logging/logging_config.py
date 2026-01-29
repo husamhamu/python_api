@@ -132,7 +132,6 @@ def setup_logging(
 
     # File handlers (optional)
     if enable_file_logs:
-        
         assert log_dir is not None
         # General log file (rotates when reaching 10MB)
         general_log_file = log_dir / f"{app_name}.log"
