@@ -4,3 +4,11 @@ __pycache__/
 dist/
 .pytest_cache/
 .ruff_cache/
+# Logs
+logs/
+*.log
+*.log.*
+
+# Environment
+.env
+.env.local

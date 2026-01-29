@@ -16,6 +16,7 @@ services:
       target: dev 
     volumes:
       - ./src:/app/src # Live reload support
+      - ./logs:/app/logs
     ports:
       - "8000:8000"
     environment:
@@ -23,6 +24,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=timnology_db
       - POSTGRES_HOST=db
+      - LOG_FILE=true
     depends_on:
       - db
     
